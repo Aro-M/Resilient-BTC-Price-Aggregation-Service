@@ -47,6 +47,7 @@ I made it very simple. You only need to have Docker:
 3. To check it, open your browser or terminal and type:
    - For the price: `curl http://localhost:8080/price` 
    - For a health check: `curl http://localhost:8080/health`
+   - For metrics: `curl http://localhost:8080/metrics`       
 4. If you want to run it directly with Go: `go run ./cmd/main.go`.
 
 ## 4. Testing strategy
