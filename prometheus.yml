@@ -1,0 +1,7 @@
+global:
+  scrape_interval: 5s 
+scrape_configs:
+  - job_name: 'btcagg-service'
+    metrics_path: '/metrics'
+    static_configs:
+      - targets: ['btcagg-service:8080']
