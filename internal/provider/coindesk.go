@@ -7,7 +7,6 @@ import (
 	"net/http"
 )
 
-// coinDeskResponse matches the custom data-api.coindesk.com format
 type coinDeskResponse struct {
 	Data map[string]struct {
 		Price float64 `json:"PRICE"`
@@ -46,8 +45,6 @@ func (p *coinDeskProvider) FetchPrice(ctx context.Context) (float64, error) {
 		return 0, fmt.Errorf("coindesk: decode: %w", err)
 	}
 	var price float64
-	// Because the pair name (e.g., BTC-USD) is dynamic in the map key,
-	// we will just grab the first valid price we find from the Data object.
 	for _, pairData := range result.Data {
 		if pairData.Price > 0 {
 			price = pairData.Price
